@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Güven | Yazılım Mühendisi</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">G.</h1>
+            <ul class="nav-links">
+                <li><a href="#hakkimda">Hakkımda</a></li>
+                <li><a href="#projeler">Projeler</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+            <li><button id="theme-toggle" style="cursor:pointer; background:none; border:none; font-size:1.2rem;">🌓</button></li>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hakkimda" class="hero-section">
+            <h2>Merhaba, ben Güven.</h2>
+            <p>Problemleri koda dönüştüren ve sürekli öğrenen bir Yazılım Mühendisliği öğrencisiyim. Minimalist tasarımları ve temiz kod mimarilerini seviyorum.</p>
+            <a href="assets/cv.pdf" class="btn" target="_blank">Özgeçmişimi İncele</a>
+        </section>
+
+        <section id="projeler" class="projects-section">
+            <h2>Öne Çıkan Projelerim</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Kütüphane Otomasyonu</h3>
+                    <p>C# ve MS SQL kullanılarak geliştirilmiş, çok katmanlı mimariye sahip kütüphane yönetim sistemi.</p>
+                    <a href="#" class="github-link">GitHub'da Gör</a>
+                </div>
+                <div class="project-card">
+                    <h3>Otel Rezervasyon Sistemi</h3>
+                    <p>Java ve MySQL ile masaüstü süreçlerini dijitalleştiren yönetim aracı.</p>
+                    <a href="#" class="github-link">GitHub'da Gör</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Tüm hakları saklıdır.</p>
+    </footer>
+<script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+    }
+
+    toggleBtn.addEventListener('click', () => {
+        let theme = document.documentElement.getAttribute('data-theme');
+        if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+</script>
+</body>
+</html>
+

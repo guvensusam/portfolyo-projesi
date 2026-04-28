@@ -1,0 +1,185 @@
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #212529;
+    --card-bg: #fff;
+    --border-color: #eaeaea;
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --border-color: #333;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Daha önce yazdığın .project-card ve .navbar border renklerini de var(--border-color) ile değiştir */
+
+
+
+/* Tüm elemanlar için CSS Kutu Modelini (Box Model) düzeltme ve varsayılan boşlukları sıfırlama */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa; /* Göz yormayan çok açık bir gri */
+    color: #212529; /* Tam siyah yerine koyu bir antrasit */
+    line-height: 1.6;
+}
+
+/* Sitenin genel genişliğini sınırlama ve ortalama */
+header, main, footer {
+    max-width: 900px; /* Minimalist görünüm için içeriği dar tutuyoruz */
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* --- ÜST MENÜ (HEADER & NAV) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Logoyu sola, menüyü sağa iter */
+    align-items: center; /* Dikeyde ortalar */
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eaeaea; /* Menüyü içerikten ayıran ince, zarif bir çizgi */
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: -1px; /* Daha modern bir tipografi için harf aralığını daraltma */
+}
+
+.nav-links {
+    list-style: none; /* Madde imlerini (noktaları) kaldırır */
+    display: flex;
+    gap: 2rem; /* Linkler arasına eşit boşluk koyar */
+}
+
+.nav-links a {
+    text-decoration: none; /* Linklerin alt çizgisini kaldırır */
+    color: #777; /* Yumuşak bir gri */
+    font-weight: 400;
+    transition: color 0.3s ease; /* Renk değişimini yumuşatır */
+}
+
+.nav-links a:hover {
+    color: #111; /* Üzerine gelince tam siyaha döner */
+}
+
+/* --- KAHRAMAN BÖLÜMÜ (HERO) --- */
+.hero-section {
+    margin: 5rem 0;
+}
+
+.hero-section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+.hero-section p {
+    font-size: 1.15rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+    max-width: 600px; /* Metnin çok uzayıp göz yormasını engeller */
+}
+
+/* Özgeçmiş Butonu */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    background-color: #111; /* Koyu kontrast */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px; /* Çok hafif yuvarlatılmış köşeler */
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #333;
+    transform: translateY(-2px); /* Üzerine gelince butonu çok hafif yukarı kaldırır */
+}
+
+/* --- PROJELER BÖLÜMÜ --- */
+.projects-section {
+    margin-top: 4rem;
+}
+
+.projects-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.project-grid {
+    display: grid;
+    /* Ekran genişliğine göre kolon sayısını otomatik ayarlar (Responsive tasarımın temeli) */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: #fff;
+    padding: 2.5rem 2rem;
+    border: 1px solid #eaeaea;
+    border-radius: 6px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Kartın havaya kalkma efekti */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Kartın altına yumuşak bir gölge ekler */
+}
+
+.project-card h3 {
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+.project-card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.github-link {
+    color: #111;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid transparent; /* Varsayılan olarak görünmez bir alt çizgi */
+    transition: border-color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.github-link:hover {
+    border-color: #111; /* Üzerine gelince altı çizilir */
+}
+
+/* Ekran genişliği 768px'den küçükse (Mobil cihazlar) */
+@media (max-width: 768px) {
+    header, main, footer {
+        padding: 1rem; /* Boşlukları daralt */
+    }
+
+    .navbar {
+        flex-direction: column; /* Logoyu ve menüyü alt alta getir */
+        gap: 1.5rem;
+    }
+
+    .hero-section h2 {
+        font-size: 2rem; /* Başlığı küçült */
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr; /* Kartları tek sütun yap */
+    }
+}
