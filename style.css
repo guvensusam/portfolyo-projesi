@@ -67,7 +67,7 @@ header, main, footer {
     opacity: 0.6;
 }
 
-/* 4. HAKKIMDA (HERO) */
+/* 4. HAKKIMDA  */
 .hero-section {
     margin: 5rem 0;
 }
@@ -159,7 +159,7 @@ header, main, footer {
 /* 6. İLETİŞİM */
 .contact-section {
     margin: 8rem 0 4rem 0;
-    text-align: left; /* Garanti sola yaslama */
+    text-align: left; 
 }
 
 .contact-section h2 {
@@ -196,15 +196,31 @@ header, main, footer {
     border-bottom: 2px solid #fff;
 }
 
-/* 7. MOBİL UYUMLULUK */
+/* 7. MOBİL  */
 @media (max-width: 768px) {
+   
+    html, body {
+        overflow-x: hidden; 
+    }
+
     header, main, footer {
-        padding: 1rem;
+        padding: 1.5rem 1rem; 
     }
 
     .navbar {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 1rem; 
+        width: 100%;
+    }
+
+    .hero-section {
+        margin: 3rem 0; 
     }
 
     .hero-section h2 {
@@ -212,6 +228,12 @@ header, main, footer {
     }
 
     .project-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; 
+        gap: 1.5rem;
+    }
+
+    
+    .project-card {
+        padding: 1.5rem; 
     }
 }
