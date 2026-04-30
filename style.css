@@ -86,6 +86,15 @@ header, main, footer {
     max-width: 600px;
 }
 
+/* BUTON KAPSAYICISI (Yan yana düzenli dursunlar diye) */
+.about-buttons {
+    display: flex;
+    gap: 25px; /* Butonlar arası boşluk */
+    align-items: center;
+    flex-wrap: wrap; /* Mobilde alt alta inmesi için */
+}
+
+/* TIPA TIP AYNI OLAN ORİJİNAL BUTON TASARIMI */
 .btn {
     display: inline-block;
     padding: 0.8rem 1.8rem;
@@ -117,7 +126,15 @@ header, main, footer {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
-
+/* Sabitlenmiş projelerin başlığına eklenecek minimalist detay */
+.project-card.featured h3::before {
+    content: '✦'; /* Minimalist 4 köşeli yıldız */
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 1rem;
+    opacity: 0.5; /* Rengi biraz soluklaştırarak zarif durmasını sağladık */
+    transform: translateY(-1px); /* Hizalamayı kusursuzlaştırmak için */
+}
 .project-card {
     background-color: var(--card-bg);
     padding: 2.5rem 2rem;
@@ -232,8 +249,51 @@ header, main, footer {
         gap: 1.5rem;
     }
 
-    
     .project-card {
         padding: 1.5rem; 
     }
+}
+
+/* 8. TEMA DEĞİŞTİRME ANAHTARI (TOGGLE SWITCH) */
+.theme-switch {
+    display: inline-block;
+    position: relative;
+    width: 46px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: transparent;
+    border: 2px solid var(--text-color);
+    border-radius: 24px;
+    transition: 0.3s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+    /* Gündüz topunu Gece Hilaline çeviren CSS sihri */
+    background-color: transparent;
+    box-shadow: inset -4px -4px 0 0 var(--text-color);
 }
